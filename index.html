@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Overwatch RPG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Link to css file-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
+    <!--Link to csss reset file-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css"/>
+    <!--link to bootstrap css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--Link to jquery file-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <!--Link to js file-->
+     <script src="assets/javascript/game.js"></script>
+     
+</head>
+<body>
+    <div class="main-content-area">
+
+        <header class="header">
+            <img class="title" id="logo" src="assets/images/overwatch_title.png">
+            <div id="subtitle">Battle Royale</div>
+        </header>
+
+        <!--Different characters users can choose from-->
+        <div class="character-selection">
+            <img class="character" id="reaper" src="assets/images/reaper-pixel.png">
+            <img class="character" id="mercy" src="assets/images/mercy-pixel.png">
+            <img class="character" id="rein" src="assets/images/rein-pixel.png">
+            <img class="character" id="zen" src="assets/images/zen-pixel.png">
+            <img class="character" id="tracer" src="assets/images/tracer-pixel.png">
+            <img class="character" id="winston" src="assets/images/winston-pixel.png">
+        </div>
+
+        <!--Will change to "Select Opponent" after P1 is chosen-->
+        <div class="selector-text">Select Your Hero</div>
+
+        <!--Battle area-->
+        <div class="battle-zone">
+            <img id="hanamura" src="assets/images/hanamura.jpg">
+            <br>
+            <button id="attack-button">Attack</button>
+                <div id="player-name"></div>
+                <div id="player-hp"></div> 
+                <div id="player-total-hp"></div>
+                <div id="opponent-name"></div>
+                <div id="opponent-hp"></div> 
+                <div id="opponent-total-hp"></div>
+                <div id="player-area"></div>
+                <div id="opponent-area"></div>
+        </div>
+                
+        
+
+    </div>
+
+   
+
+</body>
+</html>
