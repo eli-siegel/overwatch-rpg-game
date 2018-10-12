@@ -313,7 +313,6 @@ $(document).ready(function() {
 		}
 		else {	
 		gameStart = false;
-        }
         $("#selector-text").text("Select your next Opponent");
 		$("#opponent-area").empty();
 		$("#opponent-name").text("");
@@ -321,10 +320,11 @@ $(document).ready(function() {
         $("#opponent-hp").text("");
 		playerTwoSelected = false;
         }
-        
+    }
+    
     function gameReset(){
-        var heroes = [
 
+        var heroes = [
             reaper = {
                 name: "Reaper",
                 health: 170,
@@ -398,5 +398,4 @@ $(document).ready(function() {
         $("<img class ='character' id='winston' src = 'assets/images/winston-pixel.png' />").appendTo(".character-selection");
         playerSelect();
     }
-
 });
