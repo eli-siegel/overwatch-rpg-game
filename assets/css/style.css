@@ -1,11 +1,16 @@
 body {
     background-image: url(../images/background.jpg);
-    background-size: 100%;
+    background-size: 100% 100%;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.main-content-area {
+    width: 100%;
 }
 
 .title {
-    width: 50%;
+    width: 600px;
 }
 
 @font-face {
@@ -36,13 +41,14 @@ body {
     opacity: 0.5;
 }
 
-.selector-text {
-    font-size: 50px;
+#selector-text {
+    font-size: 35px;
     color: rgb(175, 151, 13);
     font-family: overwatchFont;
     letter-spacing: 1.5px;
-    text-align: center;
+    text-align:center;
     margin-bottom: 20px;
+    margin-left: 450px;
 }
 
 #hanamura {
@@ -54,13 +60,13 @@ body {
 
 #attack-button {
     position: absolute;
+    display:block;
     width: 200px;
-    margin-left: 42%;
-    margin-right: 40%;
+    margin-left: 550px;
     background-color: black;
     color: rgb(175, 151, 13);
     border: solid 2px rgb(175, 151, 13);
-    bottom: -345px;
+    top: 550px;
     margin-bottom: 20px;
 }
 
@@ -79,7 +85,7 @@ body {
 
 #player-name {
     position: absolute;
-    top: 480px;
+    top: 100px;
     left: 250px;
     font-family: overwatchFont;
     font-size: 50px;
@@ -88,7 +94,7 @@ body {
 
 #player-hp {
     position: absolute;
-    top: 530px;
+    top: 150px;
     left: 250px;
     font-family: overwatchFont;
     font-size: 50px;
@@ -97,7 +103,7 @@ body {
 
 #player-total-hp {
     position: absolute;
-    top: 580px;
+    top: 200px;
     left: 250px;
     font-family: overwatchFont;
     font-size: 50px;
@@ -106,14 +112,14 @@ body {
 
 #player-area {
     position: absolute;
-    top: 740px;
+    top: 325px;
     left: 400px;
 }
 
 #opponent-name {
     position: absolute;
-    top: 480px;
-    right: 260px;
+    top: 100px;
+    right: -220px;
     font-family: overwatchFont;
     font-size: 50px;
     color: white;
@@ -121,8 +127,8 @@ body {
 
 #opponent-hp {
     position: absolute;
-    top: 530px;
-    right: 260px;
+    top: 150px;
+    right: -220px;
     font-family: overwatchFont;
     font-size: 50px;
     color: white;
@@ -130,8 +136,8 @@ body {
 
 #opponent-total-hp {
     position: absolute;
-    top: 580px;
-    right: 260px;
+    top: 200px;
+    right: -220px;
     font-family: overwatchFont;
     font-size: 50px;
     color: white;
@@ -139,7 +145,12 @@ body {
 
 #opponent-area {
     position: absolute;
-    top: 740px;
-    right: 400px;
+    top: 325px;
+    right: -150px;
     z-index: 100;
+}
+
+.battle-zone {
+    position: absolute;
+    width: 800px;
 }

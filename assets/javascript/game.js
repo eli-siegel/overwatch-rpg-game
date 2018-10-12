@@ -58,7 +58,7 @@ $(document).ready(function() {
 	playerOneSelected = false;
 	playerTwoSelected = false;
 	gameStart = false;
-    var enemiesRemaining = heroes.length-1;
+    var enemiesRemaining = heroes.length - 1;
     
     playerSelect();
 
@@ -155,7 +155,7 @@ $(document).ready(function() {
 
     function enemySelect(){
 
-        $(".selector-text").text("Select Your Opponent");
+        $("#selector-text").text("Select Your Opponent");
         
 		$("#reaper").on("click", function() {
 			if (playerTwoSelected === false && reaper.isPlayerOne === false){
@@ -168,7 +168,7 @@ $(document).ready(function() {
 			isPlayerTwo = true;
 			gameStart = true;
 			opponent = reaper;
-            $(".selector-text").text("Fight!");
+            $("#selector-text").text("Fight!");
             $("#reaper").addClass('invert');
 			}
         });	
@@ -184,7 +184,7 @@ $(document).ready(function() {
 			isPlayerTwo = true;
 			gameStart = true;
 			opponent = mercy;
-            $(".selector-text").text("Fight!");
+            $("#selector-text").text("Fight!");
             $("#mercy").addClass('invert');
 			}
         });	
@@ -200,7 +200,7 @@ $(document).ready(function() {
 			isPlayerTwo = true;
 			gameStart = true;
 			opponent = reinhardt;
-			$(".selector-text").text("Fight!");
+			$("#selector-text").text("Fight!");
 			}
         });	
 
@@ -215,7 +215,7 @@ $(document).ready(function() {
 			isPlayerTwo = true;
 			gameStart = true;
 			opponent = zenyatta;
-			$(".selector-text").text("Fight!");
+			$("#selector-text").text("Fight!");
 			}
         });	
 
@@ -230,7 +230,7 @@ $(document).ready(function() {
 			isPlayerTwo = true;
 			gameStart = true;
 			opponent = tracer;
-            $(".selector-text").text("Fight!");
+            $("#selector-text").text("Fight!");
             $("#tracer").addClass('invert');
 			}
         });	
@@ -246,10 +246,25 @@ $(document).ready(function() {
 			isPlayerTwo = true;
 			gameStart = true;
 			opponent = winston;
-            $(".selector-text").text("Fight!");
+            $("#selector-text").text("Fight!");
             $("#winston").addClass('invert');
 			}
         });	
+    }
+
+    function gameWin() {
+        $("#opponent-total-hp").text(0);
+        console.log("you win")
+        $("#selector-text").text("You Won!")
+		gameStart = false;
+		setTimeout(gameReset, 5000);
+    }
+    
+    function gameLose() {
+		$("#player-total-hp").text(0);
+		gameStart = false;
+        $("#selector-text").text("You Lose!")
+        setTimeout(gameReset, 5000);
     }
 
     function startBattle(){
@@ -278,7 +293,7 @@ $(document).ready(function() {
     function counterAttack(){
 		player.health = player.health - opponent.counterAttackPower;
 		$("#player-total-hp").text(player.health);
-		if (player.healthPoints <= 0){
+		if (player.health <= 0){
 			gameLose();	
 		}
     }
@@ -288,35 +303,100 @@ $(document).ready(function() {
         player.attackPower = (player.attackPower + 10);
     }
 
-    //gameLose() {
-//
-  //  }
-//
-  ///  gameWin() {
-//
-  //  }
 
     //checks if any enemies are remaining
     //if 0 enemies left, run win funciton
-    //if more enemies remaining
+    //if more enemies remaining then empty opponent area and prompt user to select new opponent
     function checkProgress() {
-		if (enemiesRemaining === 0){
+		if (enemiesRemaining === 0) {
 		gameWin();
 		}
 		else {	
 		gameStart = false;
         }
-        $(".selector-text").text("Select your next Opponent");
+        $("#selector-text").text("Select your next Opponent");
 		$("#opponent-area").empty();
 		$("#opponent-name").text("");
         $("#opponent-total-hp").text("");
         $("#opponent-hp").text("");
 		playerTwoSelected = false;
-		}
-////
-    //gameReset() {
-//
-  //  }
-//
+        }
+        
+    function gameReset(){
+        var heroes = [
+
+            reaper = {
+                name: "Reaper",
+                health: 170,
+                attackPower: 18,
+                counterAttackPower: 18,
+                isPlayerOne: false,
+                isPlayerTwo: false,
+                        }, 
+            mercy = {
+                name: "Mercy",
+                health: 100,
+                attackPower: 5,
+                counterAttackPower: 5,
+                isPlayerOne: false,
+                isPlayerTwo: false,
+                        },
+            reinhardt = {
+                name: "Reinhardt",
+                health: 250,
+                attackPower: 10,
+                counterAttackPower: 10,
+                isPlayerOne: false,
+                isPlayerTwo: false,
+                        },
+            zenyatta = {
+                name: "Zenyatta",
+                health: 180,
+                attackPower: 13,
+                counterAttackPower: 13,
+                isPlayerOne: false,
+                isPlayerTwo: false,
+                        },
+            tracer = {
+                name: "Tracer",
+                health: 120,
+                attackPower: 15,
+                counterAttackPower: 15,
+                isPlayerOne: false,
+                isPlayerTwo: false,
+                        },	
+            winston = {
+                name: "Winston",
+                health: 200,
+                attackPower: 12,
+                counterAttackPower: 12,
+                isPlayerOne: false,
+                isPlayerTwo: false,
+                        }
+        ]
+        var player;
+        var opponent;
+        playerOneSelected = false;
+        playerTwoSelected = false;
+        gameStart = false;
+        var enemiesRemaining = heroes.length-1;
+        $("#selector-text").text("Select your Character")
+        $("#player-name").text("");
+        $("#player-hp").text("");
+        $("#player-total-hp").text("");
+        $("#opponent-name").text("");
+        $("#opponent-hp").text("");
+        $("#opponent-total-hp").text("");
+        $("#player-area").html("");
+        $("#opponent-area").html("");
+        $(".character-selection").html("");
+        $("<img class ='character' id='reaper' src = 'assets/images/reaper-pixel.png'/>").appendTo(".character-selection");
+        $("<img class ='character' id='mercy' src = 'assets/images/mercy-pixel.png'/>").appendTo(".character-selection");
+        $("<img class ='character' id='rein' src = 'assets/images/rein-pixel.png'/>").appendTo(".character-selection");
+        $("<img class ='character' id='zen' src = 'assets/images/zen-pixel.png' />").appendTo(".character-selection");
+        $("<img class ='character' id='tracer' src = 'assets/images/tracer-pixel.png' />").appendTo(".character-selection");
+        $("<img class ='character' id='winston' src = 'assets/images/winston-pixel.png' />").appendTo(".character-selection");
+        playerSelect();
+    }
 
 });
